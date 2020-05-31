@@ -462,6 +462,57 @@ header {
   text-align: center;
 }
 
+/* Certifications section */
+
+.courses {
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+    text-align: center;    
+}
+
+.course-list__link:hover {
+    text-decoration: underline;
+}
+
+.course-list {
+    list-style: none;
+    padding-top: 2em;
+    font-size: 1.2em;
+}
+
+.course-list__item {
+    padding-bottom: .5em;
+}
+
+
+
+.courses a { 
+    color: inherit;
+    text-decoration: none;
+}
+
+.courses__link:hover,
+.courses-list__link:hover {
+    opacity: .7;
+}
+
+@media (min-width: 600px) {
+    .course-list {
+        display: grid; 
+        margin: 0 auto;
+        grid-column-gap: 5em;
+        grid-template-columns: auto auto;
+        
+        /* METHOD 2 
+        -webkit-column-count: 2;  
+        -moz-column-count: 2;
+        column-count: 2;
+        */ 
+    }
+}
+
+
+
 /* Resume Download Section */
 .resume {
     color: var(--clr-dark);
