@@ -19,6 +19,7 @@
     
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
+    --fs-h35: 2rem; 
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
     
@@ -30,12 +31,17 @@
     :root {
         --fs-h1: 4.5rem;
         --fs-h2: 3.75rem;
+        --fs-h35: 2.5rem;
         --fs-h3: 1.5rem;
         --fs-body: 1.125rem;
     }
 }
 
 /* General styles */
+
+html {
+    scroll-behavior: smooth; 
+}
 
 body {
     background: var(--clr-light);
@@ -132,28 +138,26 @@ h3 { font-size: var(--fs-h3) }
 /* header */
 
 header {
-    display: flex; 
-    justify-content: space-between; 
-    padding: 1em; 
-    
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
 }
 
 .logo {
-    max-width: 100px; 
+    max-width: 100px;
 }
 
 .nav {
-    position: fixed; 
-    background: var(--clr-dark); 
-    color: var(--clr-light); 
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
     top: 0;
-    bottom: 0; 
-    right: 0; 
-    left: 0; 
-    z-index: 100; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
     
-/*    How much of the screen will the navbar NOT take*/
-    transform: translateX(100%); 
+    transform: translateX(100%);
     transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
 }
 
@@ -171,7 +175,7 @@ header {
 .nav__link {
     color: inherit;
     font-weight: var(--fw-bold);
-    font-size: var(--fs-h3);
+    font-size: var(--fs-h35);
     text-decoration: none;
 }
 
@@ -183,39 +187,62 @@ header {
     padding: .5em;
     background: transparent;
     border: 0;
-    cursor: pointer; 
-    position: absolute; 
-    right: 1em; 
-    top: 1em; 
-    z-index: 1000; 
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+    position: fixed; 
 }
 
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn); 
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px); 
+}
+
+
+.nav-open .hamburger::after {
+    opacity: 0; 
+}
+
+
 .hamburger {
-    display: block; 
-    position: relative
+    display: block;
+    position: relative;
 }
 
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    background: var(--clr-dark); 
-    width: 2em; 
-    height: 3px; 
-    border-radius: 1em; 
-    transition: transform 250ms ease-in-out
+    background: var(--clr-accent);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
 }
+
 
 .hamburger::before,
 .hamburger::after {
-    content: ''; 
-    position: absolute; 
-    left: 0; 
-    right: 0; 
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 
-.hambuger::before { top: 6px; }
-.hamburger::after { bottom: 6px;}
-
+.hamburger::before { top: 6px; }
+.hamburger::after { bottom: 6px; }
 
 
 /*  Intro section  */
@@ -263,6 +290,8 @@ header {
         width: calc(100% + 1.5em);
     }
 }
+
+
 
 /* My Services Section */
 
@@ -323,12 +352,18 @@ header {
 
 .about-me__img {
     box-shadow: var(--bs);
+    opacity: 100%;
+
+}
+
+.about-me a { 
+    color: inherit;
 }
 
 @media (min-width: 600px) {
     .about-me {
         display: grid;
-        grid-template-columns: 1fr 200px;
+        grid-template-columns: 1fr 300px;
         grid-template-areas: 
             "title img"
             "subtitle img"
@@ -397,6 +432,50 @@ header {
     opacity: .85;
 }
 
+/* Text Overlay Styling*/
+.portfolio__img:hover .portfolio__item--overlay {
+    opacity: 1; 
+}
+
+.portfolio__item--overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+
+.portfolio__item--text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Resume Download Section */
+.resume {
+    color: var(--clr-dark);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+}
+
+.resume-download-link {
+    color: inherit;
+    margin: 2em 0 0;
+}
+
+
 /* Footer Section */
 
 
@@ -441,4 +520,19 @@ header {
 
 .social-list__link {
     padding: .5em;
+}
+
+
+/* Individual Portfolio Page */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em; 
+    max-width: 1000px; 
+    margin 0 auto; 
+}
+
+.portfolio-item-individual {
+    max-width: 600px; 
+    margin-left: auto; 
+    margin-right: auto; 
 }
