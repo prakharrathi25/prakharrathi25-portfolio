@@ -501,6 +501,12 @@ header {
 }
 
 .portfolio__img {
+    height: 350px; 
+    width: auto; 
+/*    max-width: 300px; */
+}
+
+.portfolio__img {
     transition: 
         transform 750ms cubic-bezier(.5, 0, .5, 1),
         opacity 250ms linear;
@@ -546,6 +552,7 @@ header {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+
 
 /* Certifications section */
 
