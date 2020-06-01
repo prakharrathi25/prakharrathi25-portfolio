@@ -396,8 +396,93 @@ header {
     }
 }
 
+/* New Project Section */
+.my-work {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;    
+}
 
-/* My Work Section */
+.portfolio-items-wrapper {    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.portfolio-item-wrapper {
+    position: relative;
+    margin: 0.5em; 
+}
+
+.portfolio-img-background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 100%;
+}
+
+.img-text-wrapper {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.img-text-wrapper .description{
+    transition: 0.75s;
+    color: transparent;
+    font-weight: var(--fw-bold);
+}
+
+.img-text-wrapper__title-my-work {
+    font-size: var(--fs-h3); 
+    font-weight: var(--fw-bold);
+}
+
+.img-text-wrapper__subtitle-my-work {
+    font-size: var(--fs-body); 
+    font-weight: var(--fw-reg);
+}
+
+/* fix links */
+
+.portfolio-item-text-link {
+    text-decoration: none; 
+    color: inherit; 
+    font-size: var(--fs-h3);
+}
+
+.image-blur {
+    transition: 0.5s;
+    filter: brightness(10%);
+}
+/* hover effects */
+.img-text-wrapper:hover .img-text-wrapper__title-my-work  {
+    color: var(--clr-accent);
+    text-decoration: underline; 
+}
+
+.img-text-wrapper:hover .img-text-wrapper__subtitle-my-work  {
+    color: var(--clr-light);
+}
+
+.portfolio-item-wrapper:focus {
+    position: relative;
+    z-index: 2;
+}
+
+.two-column-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* My Work Section (Original) */
 
 .my-work {
     background-color: var(--clr-dark);
@@ -428,7 +513,7 @@ header {
 
 .portfolio__img:hover,
 .portfolio__item:focus .portfolio__img {
-    transform: scale(1.2);
+    transform: scale(1.1);
     opacity: .85;
 }
 
@@ -484,7 +569,6 @@ header {
 .course-list__item {
     padding-bottom: .5em;
 }
-
 
 
 .courses a { 
@@ -590,5 +674,5 @@ header {
     margin-right: auto; 
 }
 
-/* New Project Section */
+
 
