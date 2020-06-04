@@ -501,9 +501,9 @@ header {
 }
 
 .portfolio__img {
-    height: 350px; 
+    height: 300px; 
     width: auto; 
-/*    max-width: 300px; */
+    max-width: 500px; 
 }
 
 .portfolio__img {
