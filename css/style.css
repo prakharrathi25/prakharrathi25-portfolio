@@ -430,11 +430,11 @@ header {
   align-items: center;
   height: 100%;
   text-align: center;
-  padding-left: 100px;
-  padding-right: 100px;
 }
 
 .img-text-wrapper .description{
+    width: 75%;
+    margin: auto;
     transition: 0.75s;
     color: transparent;
     font-weight: var(--fw-bold);
